@@ -1,2 +1,3 @@
 # bevy_ecs_introduction
-Introduction to Bevy ECS
+
+Examples for [this article](https://zenn.dev/hideakitai/articles/rust_bevy_ecs_introduction_ht)
