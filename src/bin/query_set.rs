@@ -19,19 +19,19 @@ fn setup(mut commands: Commands) {
 }
 
 fn my_system(
-    mut q: QuerySet<(
-        QueryState<&mut CompA, With<CompB>>, // A with B (Mutable)
-        QueryState<&mut CompA, With<CompC>>, // A with C (Mutable)
+    mut q: ParamSet<(
+        Query<&mut CompA, With<CompB>>, // A with B (Mutable)
+        Query<&mut CompA, With<CompC>>, // A with C (Mutable)
     )>,
 ) {
     println!("===== Query A with B =====");
-    for mut a in q.q0().iter_mut() {
+    for mut a in q.p0().iter_mut() {
         a.0 += " wb";
         println!("{:?}", a);
     }
 
     println!("===== Query A with C =====");
-    for mut a in q.q1().iter_mut() {
+    for mut a in q.p1().iter_mut() {
         a.0 += " wc";
         println!("{:?}", a);
     }
